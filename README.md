@@ -33,15 +33,11 @@ Asynchroneous Embedded JavaScript Templates.
 
 ## Usage
 
-	aejs.renderFile(aejsFileName, args, function (err, res) {
-    		if (err) return console.log('error: ' + inspect(err));
-    		console.log(res);
-	});
+	aejs.renderFile(aejsFileName, args, callback);
+	    => callback(err, res) will be called
 
-	aejs.renderString(aejsTemplateString, args, function (err, res) {
-    		if (err) return console.log('error: ' + inspect(err));
-    		console.log(res);
-	});
+	aejs.renderString(aejsTemplateString, args, callback);
+	    => callback(err, res) will be called
 
 ## License 
 
