@@ -1,0 +1,17 @@
+<% 
+var fs = require('fs'); 
+%>
+<html>
+<body>
+<h1>Example1: These are the files in the local folder:</h1>
+<%(s1) 
+fs.readdir(locals.dir, function(err, files) {
+	for (var i=0; i<files.length; i++) {
+		%><p><%= files[i] %></p>
+<%
+	}
+	s1.finish();
+});
+(s1)%>
+</body>
+</html>
