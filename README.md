@@ -2,7 +2,7 @@
 
 Asynchroneous Embedded JavaScript Templates.
 
-## Installation - comming soon!
+## Installation
 
     $ npm install aejs
 

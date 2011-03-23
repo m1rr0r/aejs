@@ -1,0 +1,12 @@
+{
+  "name": "aejs",
+  "description": "Asynchroneous Embedded JavaScript Templates",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/m1rr0r/aejs.git"
+  },
+  "author": "Stoyan Krastev <stoyan.krastev@gmail.com>",
+  "main": "./lib/aejs.js",
+  "keywords": ["async", "template", "engine", "ejs" ]
+}
