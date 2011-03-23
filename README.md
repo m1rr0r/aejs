@@ -8,8 +8,8 @@ Asynchroneous Embedded JavaScript Templates.
 
 ## Features
 
-  * Parts of the EJS template can be build asyncroneous 
-  * (comming soon) Master pages
+  * Parts of the EJS template can be build asyncroneous
+  * (comming soon) Support of `include` to implement master pages
 
 ## Example
 
@@ -38,6 +38,13 @@ Asynchroneous Embedded JavaScript Templates.
 
 	aejs.renderString(aejsTemplateString, args, callback);
 	    => callback(err, res) will be called
+
+`args` is passed to the compiled template as `locals` argument. The example above demonstrate this. It could be rendered with the follwoing code:
+  
+	aejs.renderString(str, { dir: __dirname }, function(err, res) {
+		if (err) return console.log('Error: ' + err));
+		console.log(res);
+	});
 
 ## License 
 
