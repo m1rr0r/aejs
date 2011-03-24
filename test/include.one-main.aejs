@@ -1,0 +1,4 @@
+<html>
+<%(p1) include(p1, locals.dir + '/include.one-part1.aejs'); (p1)%>
+<%(p2) include(p2, locals.dir + '/include.one-part2.aejs'); (p2)%>
+</html>

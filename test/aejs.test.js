@@ -1,3 +1,4 @@
+var fs = require('fs');
 var assert = require('assert');
 var inspect = require('util').inspect;
 
@@ -14,6 +15,24 @@ var aejsTest = function (expected, template, options, cb) {
         if (res == expected) return cb(null);
         console.log('Fail: "' + expected + '" == "' + res + '"');
         cb(true);
+    });
+};
+
+var aejsTestFiles = function (expected, template, options, cb) {
+    if (!cb) {
+        cb = options;
+        options = null;
+    }
+
+    fs.readFile(expected, 'utf8', function (eerr, eres) {
+        if (eerr) return cb(eerr);
+
+        aejs.renderFile(template, options, function (rerr, rres) {
+            if (rerr) return cb(rerr);
+            if (rres == eres) return cb(null);
+            console.log('Fail: "' + eres + '" == "' + rres + '"');
+            cb(true);
+        });
     });
 };
 
@@ -68,6 +87,14 @@ var test_suite = {
             (s1)%></html>", cb);
     },
 
+    "include one": function (cb) {
+        aejsTestFiles(__dirname + "/include.one-expected.aejs", __dirname + "/include.one-main.aejs", { dir: __dirname}, cb);
+    },
+
+    "master one": function (cb) {
+        aejsTestFiles(__dirname + "/master-expected.aejs", __dirname + "/master-content1.aejs", { dir: __dirname }, cb);
+    }
+
 };
 
 var run = function (tests, cb) {
@@ -96,7 +123,7 @@ var run = function (tests, cb) {
                 report.pass++;
                 console.log('Pass: [' + totalTime + '] ' + testArr[current].name);
             }
-            
+
             current++;
             runNext();
         });

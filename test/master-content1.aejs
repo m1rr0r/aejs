@@ -1,0 +1,3 @@
+<% master(locals.dir + '/master.aejs'); %>
+<%(p1) %><div>place 1 content</div><% p1.finish(); (p1)%>
+<%(p2) %><div>place 2 content</div><% p2.finish(); (p2)%>
