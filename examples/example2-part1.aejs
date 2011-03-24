@@ -1,0 +1,4 @@
+<div>
+<p>This is part defined in another template file</p>
+<p>Some argument: locals.dir=<%= locals.dir %></p>
+</div>

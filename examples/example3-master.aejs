@@ -1,0 +1,16 @@
+<html>
+<body>
+<h1>This is the master page:</h1>
+<p>The master page contains two placehodelrs</p>
+<div id="place1">
+<%(place1)
+/* placeholder place1 */
+(place1)%>
+</div>
+<div id="place2">
+<%(place2)
+/* placeholder place2 */
+(place2)%>
+</div>
+</body>
+</html>

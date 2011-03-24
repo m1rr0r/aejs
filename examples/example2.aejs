@@ -1,0 +1,8 @@
+<html>
+<body>
+<h1>This page contains fragment from another template:</h1>
+<%(s1) 
+include(s1, locals.dir + '/example2-part1.aejs');
+(s1)%>
+</body>
+</html>

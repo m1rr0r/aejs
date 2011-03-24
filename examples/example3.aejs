@@ -1,0 +1,9 @@
+<% master(locals.dir + '/example3-master.aejs'); %>
+
+<%(place1) %>
+<p>This is the content of place1 placeholder!</p>
+<% place1.finish(); (place1)%>
+
+<%(place2) %>
+<p>This is the content of place2 placeholder!</p>
+<% place2.finish(); (place2)%>

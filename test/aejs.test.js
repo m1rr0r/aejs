@@ -1,7 +1,7 @@
 var assert = require('assert');
 var inspect = require('util').inspect;
 
-var aejs = require('aejs');
+var aejs = require('../lib/aejs');
 
 var aejsTest = function (expected, template, options, cb) {
     if (!cb) {
