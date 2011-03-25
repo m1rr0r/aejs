@@ -1,0 +1,22 @@
+<html>
+<body>
+<h1>Welcome to the AEJS example 4 page!</h2>
+<p>Here are more example. Click the link to see them rendered.</p>
+<%(s1) 
+require('fs').readdir(locals.dir, function(err, files) {
+	if (err) {
+	%><%= err.toString() %><%
+	} else {
+		files.sort();
+		for (var i=0; i<files.length; i++) {
+			var f = files[i];
+			if (f.indexOf('.aejs') < 0) continue;
+			%><p><a href='/<%= f %>'><%= f %></a></p><%
+		}
+	}
+	s1.finish();
+});
+(s1)%>
+<p>I hope you enjoy AEJS.</p>
+</body>
+</html>
