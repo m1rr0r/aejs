@@ -4,12 +4,10 @@ var inspect = require('util').inspect;
 
 var aejs = require('../lib/aejs.js');
 
-var locals = { dir: __dirname };
-
 var app = express.createServer();
 
 var send = function (res, templateFileName) {
-    aejs.renderFile(__dirname + templateFileName, locals, function (err, render) {
+    aejs.renderFile(__dirname + templateFileName, { dir: __dirname }, function (err, render) {
         if (err) return res.send(err.toString());
         res.send(render);
     });
