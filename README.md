@@ -9,27 +9,29 @@ Asynchroneous Embedded JavaScript Templates.
 ## Features
 
   * Parts of the EJS template can be build asyncroneous
-  * (comming soon) Support of `include` to implement master pages
+  * Ability to `include` files to build part of the template out of 
+  other files
+  * Master pages. Declare that the template fills some places in 
+  another `master` template.
 
 ## Example
 
 	<% 
 	var fs = require('fs'); 
 	%>
-	<html>
-	<body>
+	<div>
 	<h1>List of the files in the folder:</h1>
 	<%(scope) 
 	fs.readdir(locals.dir, function(err, files) {
 		for (var i=0; i<files.length; i++) {
-			%><p><%= files[i] %></p>
-	<%
+			%>
+			<p><%= files[i] %></p>
+			<%
 		}
-		s1.finish();
+		scope.finish();
 	});
 	(scope)%>
-	</body>
-	</html>
+	</div>
 
 ## Usage
 
@@ -39,12 +41,31 @@ Asynchroneous Embedded JavaScript Templates.
 	aejs.renderString(aejsTemplateString, args, callback);
 	    => callback(err, res) will be called
 
-`args` is passed to the compiled template as `locals` argument. The example above demonstrate this. It could be rendered with the follwoing code:
+`args` is passed to the compiled template as `locals` argument. 
+The example above demonstrate this. It could be rendered with the 
+follwoing code:
   
 	aejs.renderString(str, { dir: __dirname }, function(err, res) {
 		if (err) return console.log('Error: ' + err));
 		console.log(res);
 	});
+
+## Description
+
+The idea is to extend the embedded javascript templates with the
+ability to render parts of the template asynchroneously. In order
+to acheve that we extend EJS syntax with the ability to "name" any
+scope frgarment.
+
+A named fragment is started with `<%(name) ... %>` and ends with
+`<% ... (name)%>`. Everything between the fragment start and end 
+goes in it. Starting a fragment declares a javascript local
+variable with that name. We must explicitly "signal" that we have
+completed putting things in it by calling `name.finish();`.
+
+Don't forget to call `name.finish();` if you name a fragment,
+otherwise the rendering of the template will never finish.
+
 
 ## License 
 

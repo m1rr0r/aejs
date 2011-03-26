@@ -1,7 +1,7 @@
 {
   "name": "aejs",
   "description": "Asynchroneous Embedded JavaScript Templates",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/m1rr0r/aejs.git"
