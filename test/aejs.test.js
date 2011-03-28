@@ -93,6 +93,10 @@ var test_suite = {
 
     "master one": function (cb) {
         aejsTestFiles(__dirname + "/master-expected.aejs", __dirname + "/master-content1.aejs", { dir: __dirname }, cb);
+    },
+
+    "master with include": function (cb) {
+        aejsTestFiles(__dirname + "/master-include-expected.aejs", __dirname + "/master-include-content.aejs", { dir: __dirname }, cb);
     }
 
 };
@@ -133,6 +137,9 @@ var run = function (tests, cb) {
 }
 
 console.log('If the last output line does not show "Ok: ..." some of the tests have failed');
+var sub = {
+    t1: test_suite["include one"]
+};
 run(test_suite, function (err, res) {
     console.log('Ok: ' + inspect(res));
 });
