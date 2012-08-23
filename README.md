@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/m1rr0r/aejs.png)](http://travis-ci.org/m1rr0r/aejs)
 # AEJS
 
 Asynchroneous Embedded JavaScript Templates.
